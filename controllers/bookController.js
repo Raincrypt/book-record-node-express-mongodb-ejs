@@ -33,11 +33,9 @@ const removeBook = async (req, res) => {
 const editBook = async (req, res) => {
   const { id } = req.params;
 
-  console.log(req.body)
+  console.log(req.query)
 
-  let edition;
-  const { title, version, year, author } = req.body;
-  if (version) edition = version;
+  const [title, edition, year, author] = [req.query.t, req.query.e, req.query.d, req.query.a]
 
   try {
     await Book.findByIdAndUpdate(id, { title, edition, year, author });
