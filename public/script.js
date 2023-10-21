@@ -32,9 +32,12 @@ async function handleEdit(id, title, edition, year, author) {
 
 async function editBook() {
   try {
-    const data = await fetch(`${url}/edit/${ID}?t=${bookTitle.value}&e=${bookEdition.value}&d=${bookDate.value}&a=${bookAuthor.value}`, {
-      method: "PUT",
-    });
+    const data = await fetch(
+      `${url}/edit/${ID}?t=${bookTitle.value}&e=${bookEdition.value}&d=${bookDate.value}&a=${bookAuthor.value}`,
+      {
+        method: "PUT",
+      }
+    );
     console.log("Book Edited", data);
     location.reload();
   } catch (error) {

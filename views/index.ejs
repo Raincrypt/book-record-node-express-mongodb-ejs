@@ -33,13 +33,20 @@
 
         <tr>
           <th class="book_number"><%= index + 1 %></th>
-          <td class="book_detail" ><%= book.title %></td>
-          <td class="book_detail" ><%= book.edition %></td>
-          <td class="book_detail" ><%= book.year %></td>
-          <td class="book_detail" ><%= book.author %></td>
+          <td class="book_detail"><%= book.title %></td>
+          <td class="book_detail"><%= book.edition %></td>
+          <td class="book_detail"><%= book.year %></td>
+          <td class="book_detail"><%= book.author %></td>
           <td class="btn_container">
-            <button class="edit_btn" onclick="handleEdit('<%= book.id %>', '<%= book.title %>', '<%= book.edition %>', '<%= book.year %>', '<%= book.author %>')">Edit</button>
-            <button class="remove_btn" onclick="handleDelete('<%= book.id %>')">Delete</button>
+            <button
+              class="edit_btn"
+              onclick="handleEdit('<%= book.id %>', '<%= book.title %>', '<%= book.edition %>', '<%= book.year %>', '<%= book.author %>')"
+            >
+              Edit
+            </button>
+            <button class="remove_btn" onclick="handleDelete('<%= book.id %>')">
+              Delete
+            </button>
           </td>
         </tr>
 
@@ -62,11 +69,18 @@
         </div>
         <div class="form_input">
           <label for="author">Author: </label>
-          <input type="text" id="author" name="author" required/>
+          <input type="text" id="author" name="author" required />
         </div>
         <div class="form_btn_container">
           <button id="submit_btn" type="submit">Add Book</button>
-          <button style="display: none" id="edit_btn" type="button" onclick="editBook()">Edit Book</button>
+          <button
+            style="display: none"
+            id="edit_btn"
+            type="button"
+            onclick="editBook()"
+          >
+            Edit Book
+          </button>
         </div>
       </form>
     </section>
