@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Record</title>
+
+    <!-- Google fonts Import (Roboto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>BOOK RECORD</h1>
+    </header>
+    <section>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Edition</th>
+          <th>Date (yyyy-mm-dd)</th>
+          <th>Author</th>
+        </tr>
+
+        <% books.forEach((book, index) => { %>
+
+        <tr>
+          <th class="book_number"><%= index + 1 %></th>
+          <td class="book_detail" ><%= book.title %></td>
+          <td class="book_detail" ><%= book.edition %></td>
+          <td class="book_detail" ><%= book.year %></td>
+          <td class="book_detail" ><%= book.author %></td>
+          <td class="btn_container">
+            <button class="edit_btn" onclick="handleEdit('<%= book.id %>', '<%= book.title %>', '<%= book.edition %>', '<%= book.year %>', '<%= book.author %>')">Edit</button>
+            <button class="remove_btn" onclick="handleDelete('<%= book.id %>')">Delete</button>
+          </td>
+        </tr>
+
+        <% }) %>
+      </table>
+    </section>
+    <section class="form_container">
+      <form action="/add" method="post" class="form_wrapper">
+        <div class="form_input">
+          <label for="title">Title: </label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form_input">
+          <label for="edition">Edition: </label>
+          <input type="text" id="edition" name="version" />
+        </div>
+        <div class="form_input">
+          <label for="year">Date: </label>
+          <input type="date" id="date" name="year" required />
+        </div>
+        <div class="form_input">
+          <label for="author">Author: </label>
+          <input type="text" id="author" name="author" required/>
+        </div>
+        <div class="form_btn_container">
+          <button id="submit_btn" type="submit">Add Book</button>
+          <button style="display: none" id="edit_btn" type="button" onclick="editBook()">Edit Book</button>
+        </div>
+      </form>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>
